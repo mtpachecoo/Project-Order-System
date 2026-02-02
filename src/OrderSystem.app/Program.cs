@@ -1,6 +1,4 @@
 ﻿using OrderSystem.Entities;
-using OrderSystem.Entities.Enums;
-using System;
 
 namespace OrderSystem.app
 {
