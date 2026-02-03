@@ -6,35 +6,44 @@ namespace OrderSystem.app
     {
         static void Main(string[] args)
         {
-            System.Console.Write("Enter departament's name: ");
+            Console.Write("Enter departament's name: ");
             string deptName = Console.ReadLine();
-            System.Console.Write("Enter worker data: ");
-            System.Console.Write("Name: ");
+            Console.WriteLine("Enter worker data: ");
+            Console.Write("Name: ");
             string name = Console.ReadLine();
-            System.Console.Write("(Junior/MidLevel/Senior): ");
+            Console.Write("(Junior/MidLevel/Senior): ");
             WorkerLevel level = Enum.Parse<WorkerLevel>(Console.ReadLine());
-            System.Console.Write("Base Salary: ");
+            Console.Write("Base Salary: ");
             double baseSalary = double.Parse(Console.ReadLine());
 
             Department dept = new Department(deptName);
             Worker worker = new Worker(name, level, baseSalary, dept);
 
-            System.Console.Write("How many contract to this worker? ");
+            Console.Write("How many contract to this worker? ");
             int contract = int.Parse(Console.ReadLine());
-            for(int i = 1; i < contract; i++)
+            for (int i = 1; i <= contract; i++)
             {
-                System.Console.WriteLine($"Enter #{i} contract data:");
-                System.Console.Write("Date (DD/MM/YYYY): ");
+                Console.WriteLine($"Enter #{i} contract data:");
+                Console.Write("Date (DD/MM/YYYY): ");
                 DateTime date = DateTime.Parse(Console.ReadLine());
-                System.Console.Write("Value por hour: ");
+                Console.Write("Value por hour: ");
                 double valueHour = double.Parse(Console.ReadLine());
-                System.Console.WriteLine("Duration (hours): ");
+                Console.Write("Duration (hours): ");
                 int hours = int.Parse(Console.ReadLine());
-                HourContract contracts = new HourContract (date, valueHour, hours); 
+                HourContract contracts = new HourContract(date, valueHour, hours);
                 worker.AddContract(contracts);
-
-
             }
-        }
+            Console.Write("Enter month and year t0 calculate income (MM/YYYY): ");
+            string monthYear = Console.ReadLine();
+            int month = int.Parse(monthYear.Substring(0, 2));
+            int year = int.Parse(monthYear.Substring(3));
+
+            Console.WriteLine("Name: " + worker.Name);
+            Console.WriteLine("Department: " + worker.Department.Name);
+            Console.WriteLine($"Income for : {monthYear}: {worker.Income(year, month)}");
+
+
+
+        }   
     }
 }
