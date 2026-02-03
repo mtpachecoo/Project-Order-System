@@ -1,6 +1,6 @@
 <Solution>
   <Folder Name="/src/">
-    <Project Path="BlogSystem.app/BlogSystem.app.csproj" Id="df838526-c785-43d2-99f2-b9199a6658ba" />
+    <Project Path="src/BlogSystem.app/BlogSystem.app.csproj" />
     <Project Path="src/OrderSystem.app/OrderSystem.app.csproj" />
   </Folder>
 </Solution>
